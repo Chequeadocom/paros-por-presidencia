@@ -15,7 +15,7 @@ var c10 = d3.scale.category10();
                   unit:oneMonth,
                   legend:"",
                   source:"http://www.bigmacmuseum.com/",
-                  ttl:1,
+                  ttl:0.999,
                   old:null
                 },
                 {
@@ -25,7 +25,7 @@ var c10 = d3.scale.category10();
                   legend:"",
                   source:"http://www.coca-cola.co.uk/faq/products/how-many-cans-of-coca-cola-are-sold-worldwide-in-a-day.html",
                   old:null,
-                  ttl:1,
+                  ttl:0.999,
                 },
                 
                 {
@@ -37,7 +37,7 @@ var c10 = d3.scale.category10();
                  // size:30,
                  // texture:"http://www.motorbeam.com/wp-content/uploads/Renault_Bajaj_Small_Car.jpg",
                   old:null,
-                  ttl:1, //999 product cycle 
+                  ttl:0.999, //999 product cycle 
                 },
                 {
                   label:"De la R&uacute;a",
@@ -47,7 +47,7 @@ var c10 = d3.scale.category10();
                   source:"http://www.worldometers.info/bicycles/",
                   //texture:"http://image.made-in-china.com/2f0j00SKsQUwotETqJ/700C-3k-38mm-Tubular-Full-Carbon-Bicycle-Wheels-with-Novatec-Hub-BX-W38T-.jpg",
                   old:null,
-                  ttl:1, // product cycle ??
+                  ttl:0.999, // product cycle ??
                 },
                 {
                   label:"Duhalde",
@@ -56,7 +56,7 @@ var c10 = d3.scale.category10();
                   source:"http://www.worldometers.info/computers/",
                   //texture:"http://upload.wikimedia.org/wikipedia/commons/1/1a/Tatung-einstein-computer.png",
                   old:null,
-                  ttl:1,
+                  ttl:0.999,
                 },
                 
                 {
@@ -67,7 +67,7 @@ var c10 = d3.scale.category10();
                  // size:30,
                  // texture:"http://www.motorbeam.com/wp-content/uploads/Renault_Bajaj_Small_Car.jpg",
                   old:null,
-                  ttl:1, //999 product cycle 
+                  ttl:0.999, //999 product cycle 
                 },
                 {
                   label:"CFK I",
@@ -76,7 +76,7 @@ var c10 = d3.scale.category10();
                   source:"http://www.worldometers.info/bicycles/",
                   //texture:"http://image.made-in-china.com/2f0j00SKsQUwotETqJ/700C-3k-38mm-Tubular-Full-Carbon-Bicycle-Wheels-with-Novatec-Hub-BX-W38T-.jpg",
                   old:null,
-                  ttl:1, // product cycle ??
+                  ttl:0.999, // product cycle ??
                 },
                 {
                   label:"CFK II",
@@ -85,7 +85,7 @@ var c10 = d3.scale.category10();
                   source:"http://www.worldometers.info/computers/",
                   //texture:"http://upload.wikimedia.org/wikipedia/commons/1/1a/Tatung-einstein-computer.png",
                   old:null,
-                  ttl:1,
+                  ttl:0.999,
                 }
         ]
 
@@ -126,8 +126,10 @@ var c10 = d3.scale.category10();
             category:i,
             callback:{
              draw:function(token){
-               var size = token.attr("size")
-               token.attr("size",size*data.ttl)
+               var size = token.attr("size");
+               if (size > 5){
+                  token.attr("size",size*data.ttl);
+               }
              }
             }
           }
@@ -141,6 +143,7 @@ var c10 = d3.scale.category10();
         if(typeof(data.size)!="undefined"){
           token.size = data.size
         }
+        token.size = 15;
         if(_this && _this.addToken){
           _this.addToken(token);
         }
@@ -201,9 +204,9 @@ var c10 = d3.scale.category10();
                                   if(iteration==4700){
                                     clearInterval(clock);
                                     iteration = 0;
-                                   // $('#restart').show();
+                                    $('#restart').show();
                                     meses = 0;
-                                    //$('#meses').html(0);
+                                    $('#meses').html(0);
                                   }
 
                                   iteration++;
@@ -219,7 +222,7 @@ var c10 = d3.scale.category10();
        var divWidth = Math.round(setting.width/setting.data.model.length)
        //console.log("divWidth",divWidth)
        for (var i = setting.data.model.length-1; i >= 0 ; i--) {
-         $('#'+container).append('<div class="label" style="width:'+divWidth+'px;">'+setting.data.model[i].label+'</div>');
+         $('#'+container).append('<div class="label-viz" style="width:'+divWidth+'px;">'+setting.data.model[i].label+'</div>');
        }
     }
 
