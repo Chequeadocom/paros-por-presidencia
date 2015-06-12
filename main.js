@@ -15,7 +15,7 @@ var c10 = d3.scale.category10();
                   unit:oneMonth,
                   legend:"",
                   source:"http://www.bigmacmuseum.com/",
-                  ttl:0.999,
+                  ttl:1,
                   old:null
                 },
                 {
@@ -25,7 +25,7 @@ var c10 = d3.scale.category10();
                   legend:"",
                   source:"http://www.coca-cola.co.uk/faq/products/how-many-cans-of-coca-cola-are-sold-worldwide-in-a-day.html",
                   old:null,
-                  ttl:0.999,
+                  ttl:1,
                 },
                 
                 {
@@ -37,7 +37,7 @@ var c10 = d3.scale.category10();
                  // size:30,
                  // texture:"http://www.motorbeam.com/wp-content/uploads/Renault_Bajaj_Small_Car.jpg",
                   old:null,
-                  ttl:0.999, //999 product cycle 
+                  ttl:1, //999 product cycle 
                 },
                 {
                   label:"De la R&uacute;a",
@@ -47,7 +47,7 @@ var c10 = d3.scale.category10();
                   source:"http://www.worldometers.info/bicycles/",
                   //texture:"http://image.made-in-china.com/2f0j00SKsQUwotETqJ/700C-3k-38mm-Tubular-Full-Carbon-Bicycle-Wheels-with-Novatec-Hub-BX-W38T-.jpg",
                   old:null,
-                  ttl:0.999, // product cycle ??
+                  ttl:1, // product cycle ??
                 },
                 {
                   label:"Duhalde",
@@ -56,7 +56,7 @@ var c10 = d3.scale.category10();
                   source:"http://www.worldometers.info/computers/",
                   //texture:"http://upload.wikimedia.org/wikipedia/commons/1/1a/Tatung-einstein-computer.png",
                   old:null,
-                  ttl:0.999,
+                  ttl:1,
                 },
                 
                 {
@@ -67,7 +67,7 @@ var c10 = d3.scale.category10();
                  // size:30,
                  // texture:"http://www.motorbeam.com/wp-content/uploads/Renault_Bajaj_Small_Car.jpg",
                   old:null,
-                  ttl:0.999, //999 product cycle 
+                  ttl:1, //999 product cycle 
                 },
                 {
                   label:"CFK I",
@@ -76,7 +76,7 @@ var c10 = d3.scale.category10();
                   source:"http://www.worldometers.info/bicycles/",
                   //texture:"http://image.made-in-china.com/2f0j00SKsQUwotETqJ/700C-3k-38mm-Tubular-Full-Carbon-Bicycle-Wheels-with-Novatec-Hub-BX-W38T-.jpg",
                   old:null,
-                  ttl:0.999, // product cycle ??
+                  ttl:1, // product cycle ??
                 },
                 {
                   label:"CFK II",
@@ -85,7 +85,7 @@ var c10 = d3.scale.category10();
                   source:"http://www.worldometers.info/computers/",
                   //texture:"http://upload.wikimedia.org/wikipedia/commons/1/1a/Tatung-einstein-computer.png",
                   old:null,
-                  ttl:0.999,
+                  ttl:1,
                 }
         ]
 
@@ -159,6 +159,8 @@ var c10 = d3.scale.category10();
 
       var clock;
 
+      var segundos = 0;
+
       // start the clock 
       function start() {
           for (var i = data.length - 1; i >= 0; i--) {
@@ -168,10 +170,14 @@ var c10 = d3.scale.category10();
 
           $('#restart').hide();
 
+          /*setInterval(function(){
+            console.log(segundos++);
+          },1000);*/
+
           clock    = window.setInterval(
                               function (){
 
-                                  if(iteration%100==0){
+                                  if(iteration % 100==0){
                                     meses++;
                                     $('#meses').html(meses);
                                   }
@@ -192,12 +198,12 @@ var c10 = d3.scale.category10();
                                     data[i].old = data[i].now                                      
                                   };
 
-                                  if(iteration==3000){
+                                  if(iteration==4700){
                                     clearInterval(clock);
                                     iteration = 0;
-                                    $('#restart').show();
+                                   // $('#restart').show();
                                     meses = 0;
-                                    $('#meses').html(0);
+                                    //$('#meses').html(0);
                                   }
 
                                   iteration++;
