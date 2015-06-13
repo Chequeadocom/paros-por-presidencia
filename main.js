@@ -201,7 +201,7 @@ var c10 = d3.scale.category10();
                                     data[i].old = data[i].now                                      
                                   };
 
-                                  if(iteration==4700){
+                                  if(iteration==4800){
                                     clearInterval(clock);
                                     iteration = 0;
                                     $('#restart').show();
