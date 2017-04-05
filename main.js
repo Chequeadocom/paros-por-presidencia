@@ -80,7 +80,17 @@ var c10 = d3.scale.category10();
                 },
                 {
                   label:"CFK II",
-                  value:0.11,
+                  value:0.10,
+                  unit:oneMonth,
+                  source:"http://www.worldometers.info/computers/",
+                  //texture:"http://upload.wikimedia.org/wikipedia/commons/1/1a/Tatung-einstein-computer.png",
+                  old:null,
+                  ttl:0.999,
+                }
+                ,
+                {
+                  label:"Macri",
+                  value:0.06,
                   unit:oneMonth,
                   source:"http://www.worldometers.info/computers/",
                   //texture:"http://upload.wikimedia.org/wikipedia/commons/1/1a/Tatung-einstein-computer.png",
@@ -89,7 +99,7 @@ var c10 = d3.scale.category10();
                 }
         ]
 
-        var w = $(window).width();
+      var w = $(window).width();
 
       // Setting normal chart 
       sceneSetting = {
@@ -219,7 +229,7 @@ var c10 = d3.scale.category10();
     // add legends 
     var labeling =function(setting,container){
        //$('#'+container).append('<div class="label" style="width:100px;"> &nbsp;</div>');
-       var divWidth = Math.round(setting.width/setting.data.model.length)
+       var divWidth = Math.floor(setting.width/setting.data.model.length)
        //console.log("divWidth",divWidth)
        for (var i = setting.data.model.length-1; i >= 0 ; i--) {
          $('#'+container).append('<div class="label-viz" style="width:'+divWidth+'px;">'+setting.data.model[i].label+'</div>');
