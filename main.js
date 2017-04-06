@@ -89,8 +89,8 @@ var c10 = d3.scale.category10();
                 }
                 ,
                 {
-                  label:"Macri",
-                  value:0.06,
+                  label:"Macri **",
+                  value:0.02,
                   unit:oneMonth,
                   source:"http://www.worldometers.info/computers/",
                   //texture:"http://upload.wikimedia.org/wikipedia/commons/1/1a/Tatung-einstein-computer.png",
